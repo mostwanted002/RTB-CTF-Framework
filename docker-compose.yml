@@ -2,7 +2,8 @@ version: "3"
 
 services:
   rtbctf:
-    image: eshaan7/rtb-ctf-framework
+    build: .
+    container_name: rtb_gunicorn
     restart: unless-stopped
     expose:
       - "8000"
@@ -19,7 +20,7 @@ services:
     expose:
       - "5432"
     env_file:
-    - .env_postgres
+      - .env_postgres
 
   redis:
     image: redis:alpine3.12
